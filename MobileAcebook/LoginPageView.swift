@@ -70,6 +70,7 @@ struct LoginPageView: View {
                         }
                     }.padding()
                     
+                    
                 }
                 
                 NavigationLink(destination: FeedPageView(token: authToken), isActive: $isLoggedIn) {
@@ -101,7 +102,7 @@ struct LoginPageView: View {
                     .cornerRadius(10)
                     .padding()
                     }
-//                    .hidden()
+                    //.hidden()
                 
                 
                 Spacer()
@@ -126,7 +127,7 @@ struct LoginPageView: View {
                     
                 )}
             
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
