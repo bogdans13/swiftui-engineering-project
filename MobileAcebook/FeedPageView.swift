@@ -9,10 +9,14 @@ import Foundation
 import SwiftUI
 
 struct FeedPageView: View {
+    let token: String // Property to hold the token
+    init(token: String) {
+    self.token = token // Initialize the token property
+    }
     @State private var text = ""
-    @State public var token: String
+//    @State public var token: String
     @ObservedObject public var posts = FeedService()
-    var testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYxZDE0YTc2MTYyOWM4Zjg0YTBhMTY4IiwiaWF0IjoxNzEzNTI1MzgyLCJleHAiOjE3MTM1MjU5ODJ9.CJCnzFU1pWM0BgqZG1-FJejL7_YXy8GL14IDNXKqr8I"
+    var testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYxZDEwZDQ5YzUwZWEwNmRiMTc2MmM2IiwiaWF0IjoxNzEzNTI3MDE2LCJleHAiOjE3MTM1Mjc2MTZ9.AurZtQnDoRFKfbMhK2JUHHpj3PraNkWu1ISgs84HHN0"
     
     var body: some View {
         
@@ -40,6 +44,7 @@ struct FeedPageView: View {
                 .padding([.leading, .trailing], 24)
             
             Button("Add Post"){
+                
             }
             .frame(width: 250, height: 40)
             .background(Color(red: 0x50/255, green: 0xB7/255, blue: 0xB7/255))
@@ -65,6 +70,7 @@ struct FeedPageView: View {
             posts.getPost(token: testToken){fetchedPost in
                 self.posts.postsData = fetchedPost.posts}
             print("fetching2")
+            print(token)
         }
     }
 }

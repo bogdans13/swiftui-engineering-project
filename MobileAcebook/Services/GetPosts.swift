@@ -36,7 +36,7 @@ class FeedService: ObservableObject {
                 DispatchQueue.main.async {
                     completion(response)
                     for post in response.posts {
-                        print(post.message!)
+                        print(post.message)
                     }
                 }
             } catch {
